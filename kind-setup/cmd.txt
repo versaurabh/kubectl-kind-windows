@@ -1,0 +1,12 @@
+# ref: https://medium.com/@muthanagavamsi/install-kubernetes-on-windows-11-with-kind-8b06c303d09c
+
+# create kind cluster
+kind create cluster --config kind.yaml --name my-cluster
+
+# check if kubectl cluster created
+k get pods -n kube-system
+
+# setup argocd
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
